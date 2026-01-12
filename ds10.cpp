@@ -55,7 +55,7 @@ int minTimeToVisitAllPoints1(vector<vector<int>>& points)
     return count;
     }
 
-int minTimeToVisitAllPoints(vector<vector<int>>& points) 
+int minTimeToVisitAllPoints2(vector<vector<int>>& points) 
     {
         int n=points.size();
         int xtar;
@@ -74,6 +74,16 @@ int minTimeToVisitAllPoints(vector<vector<int>>& points)
             count+=max(xdif,ydif);
             xstart=xtar;
             ystart=ytar;
+        }
+    return count;
+    }
+
+int minTimeToVisitAllPoints(vector<vector<int>>& points) 
+    {
+        int count=0;
+        for(int i=1;i<points.size();i++)
+        {
+            count+=max((abs(points[i][0]-points[i-1][0])),(abs(points[i][1]-points[i-1][1])));
         }
     return count;
     }
