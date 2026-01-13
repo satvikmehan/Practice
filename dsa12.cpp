@@ -59,10 +59,7 @@ int search(vector<int>& nums, int target)
 
 int search(vector<int>& nums, int target) 
     {
-        int n=nums.size();
-        int mid;
-        int st=0;
-        int end=n-1;
+        int st=0,end=nums.size()-1,mid;
         while(st<=end)
         {
             mid=st+(end-st)/2;
@@ -93,7 +90,6 @@ int search(vector<int>& nums, int target)
                     end=mid-1;
                 }
             }
-
         }
         return -1;
     
