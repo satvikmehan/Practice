@@ -2,33 +2,74 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-AuctionSystem() 
+bool isValid(vector<int>pages,int students,int check)
+{
+    int n=pages.size();
+    int st=1,page=0;
+    for(int i=0;i<n;i++)
     {
-        
+        if(pages[i]>check)
+        {
+            return false;
+        }
+        if(page+pages[i]<=check)
+        {
+            page+=pages[i];
+        }
+        else
+        {
+            st++;
+            page=pages[i]; 
+        }
+    }
+    if(st>students)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
     }
     
-    void addBid(int userId, int itemId, int bidAmount) 
+}
+
+int BookAllocation(vector<int>pages,int students)
+{
+    int sum;
+    for(int i:pages)
     {
-        
+        sum+=i;
     }
-    
-    void updateBid(int userId, int itemId, int newAmount) 
+    int ans=-1;
+    int n=pages.size();
+    if(n<students)
     {
-        
+        return ans;
     }
-    
-    void removeBid(int userId, int itemId) 
+    int st=0;
+    int end=sum;
+    while(st<=end)
     {
-        
+        int mid=st+(end-st)/2;
+        if(isValid(pages,students,mid))
+        {
+            ans=mid;
+            end=mid-1;
+        }
+        else
+        {
+            st=mid+1;
+        }
     }
-    
-    int getHighestBidder(int itemId) 
-    {
-        
-    }
+    return ans;
+}
 
 int main()
 {
+    vector<int>pages={15,17,20};
+    int students=2;
+
+    cout<<BookAllocation(pages,students);
     
     return 0;
 }
