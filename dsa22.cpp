@@ -4,9 +4,8 @@ using namespace std;
 
 bool isValid(vector<int>pages,int students,int check)
 {
-    int n=pages.size();
     int st=1,page=0;
-    for(int i=0;i<n;i++)
+    for(int i=0;i<pages.size();i++)
     {
         if(pages[i]>check)
         {
