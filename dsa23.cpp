@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int isPossible(vector<int>boards,int m,int n,int check)
+bool isPossible(vector<int>boards,int m,int n,int check)
 {
     int painter=1;int board=0;
     for(int i=0;i<n;i++)
