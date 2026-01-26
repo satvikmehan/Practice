@@ -34,10 +34,12 @@ bool isValid(vector<int>pages,int students,int check)
 
 int BookAllocation(vector<int>pages,int students)
 {
-    int sum;
+    int sum=0;
+    int Mpage=-1;
     for(int i:pages)
     {
         sum+=i;
+        Mpage=max(Mpage,i);
     }
     int ans=-1;
     int n=pages.size();
@@ -45,7 +47,7 @@ int BookAllocation(vector<int>pages,int students)
     {
         return ans;
     }
-    int st=0;
+    int st=Mpage;
     int end=sum;
     while(st<=end)
     {
