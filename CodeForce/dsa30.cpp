@@ -18,23 +18,34 @@ using namespace std;
 #define ps(x,y)         fixed<<setprecision(y)<<x
 #define mk(arr,n,type)  type *arr=new type[n];
 #define w(t)            int t; cin>>t; while(t--)
-
-
-
 void solve() 
 {
-    
+    int amt,coin;
+    cin>>amt>>coin;
+    if(amt%2==0)
+    {
+        cout<<"Yes";
+        return;
+    }
+    if((amt-coin)%2==0)
+    {
+        cout<<"Yes";
+        return;
+    }
+    else
+    {
+        cout<<"No";
+        return;
+    }
+
 
 }
-
-
-
-
 int32_t main()
 {
     w(t)
     {
         solve();
+        cout<<endl;
     }
 return 0;
 }

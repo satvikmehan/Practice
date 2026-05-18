@@ -18,20 +18,43 @@ using namespace std;
 #define ps(x,y)         fixed<<setprecision(y)<<x
 #define mk(arr,n,type)  type *arr=new type[n];
 #define w(t)            int t; cin>>t; while(t--)
-void solve() {
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++)
+void solve() 
+{
+    int a,b,n,s;
+    cin>>a>>b>>n>>s;
+    int x=s/n;
+    if(x>=a)
     {
-        cin>>arr[i];
+        int rem=s-n*a;
+        if(rem<=b)
+        {
+            cout<<"Yes";
+        }
+        else
+        {
+            cout<<"No";
+        }
     }
+    else
+    {
+        int rem=s%n;
+        if(rem<=b)
+        {
+            cout<<"Yes";
+        }
+        else
+        {
+            cout<<"No";
+        }
+    }
+
 }
 int32_t main()
 {
     w(t)
     {
         solve();
+        cout<<endl;
     }
 return 0;
 }
